@@ -24,3 +24,12 @@ Link to report (Google Docs): [https://docs.google.com/document/d/1kUTiOY28cHiza
 9. Conclusion
 10. Bibliography
 11. Appendices
+
+#### Roles
+1. PM / Owner
+2. Testing / QA
+3. UX / Designer
+4. Developer
+5. Solution
+6. Technical
+7. Business Analyst
