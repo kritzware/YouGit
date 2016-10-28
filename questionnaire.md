@@ -18,4 +18,8 @@
 
 9. Do you understand git error messages?
 
-10. Any thoughts on youGit? (explain idea)
+10. What aspects of git do you find confusing?
+
+11. Describe a time when you had trouble using Git?
+
+12. Any thoughts on youGit? (explain idea)
