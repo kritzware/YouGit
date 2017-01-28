@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.GitAPIException;
@@ -23,10 +24,6 @@ public class Main extends Application {
         primaryStage.setTitle("YouGit");
         primaryStage.setScene(new Scene(root, 1366, 768));
         primaryStage.show();
-
-        File file = new File("test.txt");
-        file.createNewFile();
-        Git git = Git.init().setDirectory(file.getParentFile()).call();
     }
 
     public static void main(String[] args) {
