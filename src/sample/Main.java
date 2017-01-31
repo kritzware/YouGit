@@ -19,5 +19,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        Chat c1 = new Chat(500, 500);
     }
 }
