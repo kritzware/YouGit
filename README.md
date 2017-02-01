@@ -17,3 +17,20 @@ Before starting work make sure you pull the latest version from Github. Navigate
 4. ```git add .``` --> Adds all your changes
 5. ```git commit -m "Your commit message"``` --> Commit the changes with a message
 6. ```git push``` --> Push your commits to GitHub
+
+### Adding Libraries
+1. Open the project in IntelliJ IDE
+2. Right click on software-project (root folder) on the left sidebar
+3. Click 'Open Module Settings' > 'Modules' (Project Settings) > 'Dependencies'
+4. Click the green plus button > 'JARs or directories'
+5. Navigate to software-project/.idea/libraries and select all 6 .jar files
+```
+- hamcrest-core-1.3.jar
+- jsch-0.1.54.jar
+- junit-4.12.jar
+- org.eclipse.jgit-4.6.0.201612231935-r.jar
+- slf4j-api-1.7.22.jar
+- slf4j-simple-1.7.22.jar
+```
+6. Once you've added all the jars, click Apply and then OK to close
+7. The libraries should be correctly imported now and the program should build succesfully
