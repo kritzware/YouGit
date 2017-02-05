@@ -7,17 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import javafx.scene.control.Button;
 
-
-import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.GitAPIException;
 
-import java.io.File;
 import java.io.IOException;
-
-import org.junit.rules.TemporaryFolder;
-import static org.eclipse.jgit.api.Git.cloneRepository;
 
 
 public class Main extends Application {
@@ -34,7 +27,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception, IOException, GitAPIException {
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
         primaryStage.setTitle("YouGit");
 
         window = primaryStage;
@@ -44,7 +37,7 @@ public class Main extends Application {
         });
 
 
-        Scene scene = new Scene(root, 800, 550);
+        Scene scene = new Scene(root, 1366, 768);
 
         window.setScene(scene);
         window.show();
