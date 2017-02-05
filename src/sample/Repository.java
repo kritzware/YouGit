@@ -1,6 +1,7 @@
 package sample;
 
 import org.eclipse.jgit.api.*;
+import org.eclipse.jgit.api.errors.GitAPIException;
 
 import java.io.File;
 
@@ -19,12 +20,12 @@ public class Repository {
 //        Git git = Git.init().setDirectory(file.getParentFile()).call();
     }
 
-    public void add(File file) {
-
+    public void add(File file) throws GitAPIException {
+        this.git.add().addFilepattern("test_file").call();
     }
 
-    public void commit(String message) {
-
+    public void commit(String message) throws GitAPIException {
+        this.git.commit().setMessage("commit message").call();
     }
 
     public void push() {

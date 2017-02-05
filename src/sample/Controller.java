@@ -2,24 +2,24 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
-
 public class Controller {
 
+    private Repository repository;
 
-
-    public void loginButtonClicked() {
-        System.out.println("Create New");
-
-
+    public void newRepository() throws IOException {
+        Boolean newRepository = RepositoryModal.display();
+        if(newRepository) {
+            System.out.println("new repo");
+        }
     }
 
     public void CutButton(){

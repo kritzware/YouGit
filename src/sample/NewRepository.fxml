@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <VBox prefHeight="71.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

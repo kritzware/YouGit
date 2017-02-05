@@ -4,37 +4,19 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
-import javafx.scene.control.Button;
-
-
-import org.eclipse.jgit.api.*;
-import org.eclipse.jgit.api.errors.GitAPIException;
-
-import java.io.File;
-import java.io.IOException;
-
-import org.junit.rules.TemporaryFolder;
-import static org.eclipse.jgit.api.Git.cloneRepository;
-
 
 public class Main extends Application {
     Stage window;
-    Button button;
-
 
     public static void main(String[] args) {
         launch(args);
-
     }
+
     @Override
+    public void start(Stage primaryStage) throws Exception {
 
-    public void start(Stage primaryStage) throws Exception, IOException, GitAPIException {
-
-
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
         primaryStage.setTitle("YouGit");
 
         window = primaryStage;
@@ -43,20 +25,15 @@ public class Main extends Application {
             closeProgram();
         });
 
-
         Scene scene = new Scene(root, 800, 550);
 
         window.setScene(scene);
         window.show();
-
     }
-
 
     private void closeProgram(){
        Boolean answer = ConfirmBox.display("Title", "Sure you want to exit?");
        if(answer)
            window.close();
-
     }
-
 }
