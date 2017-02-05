@@ -2,12 +2,14 @@ package sample;
 
 import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Repository {
 
-    private Git git;
+    private Git repo;
     private String directory;
     private boolean is_remote;
 
@@ -21,11 +23,16 @@ public class Repository {
     }
 
     public void add(File file) throws GitAPIException {
-        this.git.add().addFilepattern("test_file").call();
+        this.repo.add().addFilepattern("test_file").call();
     }
 
     public void commit(String message) throws GitAPIException {
-        this.git.commit().setMessage("commit message").call();
+        this.repo.commit().setMessage("commit message").call();
+    }
+
+    public void getCommits() throws IOException, GitAPIException {
+        Iterable<RevCommit> commits = this.repo.log().all().call();
+        System.out.println(commits.toString());
     }
 
     public void push() {
