@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -18,9 +21,9 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                        <MenuItem mnemonicParsing="false" onAction="#CutButton" text="Cut" />
-                        <MenuItem mnemonicParsing="false" onAction="#CopyButton" text="Copy" />
-                        <MenuItem mnemonicParsing="false" onAction="#PasteButton" text="Paste" />
+                        <MenuItem mnemonicParsing="false" text="Cut" />
+                        <MenuItem mnemonicParsing="false" text="Copy" />
+                        <MenuItem mnemonicParsing="false" text="Paste" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="View">
@@ -40,21 +43,82 @@
                   </Menu>
               </menus>
             </MenuBar>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#loginButtonClicked" text="File Explorer" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="200.0" right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Branches" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Timeline" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <MenuButton mnemonicParsing="false" text="Browse/Search">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Browse" />
+                      <MenuItem mnemonicParsing="false" text="Search" />
+                    </items>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </MenuButton>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </top>
-   <left>
-      <TreeView prefHeight="296.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </left>
-   <center>
-      <TextArea prefHeight="216.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
-   </center>
    <bottom>
-      <HBox prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="194.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" nodeOrientation="LEFT_TO_RIGHT" scaleShape="false" text="Bottom of screen" textAlignment="CENTER" />
+            <TreeView prefHeight="201.0" prefWidth="238.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TreeView>
+            <HBox>
+               <children>
+                  <TextField prefHeight="26.0" prefWidth="341.0">
+                     <HBox.margin>
+                        <Insets top="175.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </HBox>
+            <SplitPane prefHeight="164.0" prefWidth="102.0" HBox.hgrow="ALWAYS">
+               <items>
+                  <ImageView fitHeight="100.0" fitWidth="100.0">
+                     <image>
+                        <Image url="@58832_300x300.jpeg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="-110.0" top="100.0" />
+                     </HBox.margin>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </items>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </SplitPane>
          </children>
       </HBox>
    </bottom>
+   <left>
+      <ListView fx:id="listview" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
-

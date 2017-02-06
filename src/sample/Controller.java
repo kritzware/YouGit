@@ -13,9 +13,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Controller {
-
-
-
+  
     public void loginButtonClicked() {
         System.out.println("Create New");
 
@@ -67,6 +65,5 @@ public class Controller {
 
         System.out.println("Repository cloned -> " + repo.getRepository().getDirectory());
     }
-
 
 }
