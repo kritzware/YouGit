@@ -56,4 +56,4 @@ jspm_packages
 *.tgz
 
 # IDE
-.idea/workspace.xml
+/.idea/workspace.xml
