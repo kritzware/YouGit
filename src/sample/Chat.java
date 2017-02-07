@@ -9,8 +9,5 @@ public class Chat {
 
     Chat(int xpos, int ypos)
     {
-        TextArea messages = new TextArea();
-        TextField input = new TextField();
-        messages.setPrefHeight(550);
     }
 }
