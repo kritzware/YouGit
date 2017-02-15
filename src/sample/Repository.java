@@ -1,6 +1,6 @@
 package sample;
 
-import org.eclipse.jgit.api.*;
+ import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.GitAPIException;
 
 import javax.swing.filechooser.FileSystemView;
@@ -28,7 +28,7 @@ public class Repository {
                 throw new java.lang.Error("repo_already_exists");
             }
             git = Git.init().setDirectory(localPath).call();
-            System.out.println("Repository created -> " + git.getRepository().getDirectory());
+           System.out.println("Repository created -> " + git.getRepository().getDirectory());
         } catch (Exception err) {
             System.out.println("Error creating repository");
             System.out.println(err.getMessage());
@@ -49,11 +49,11 @@ public class Repository {
                 System.out.println("Stopping.. Repository already exists");
                 throw new java.lang.Error("repo_already_exists");
             }
-            git = Git.cloneRepository()
+         git = Git.cloneRepository()
                     .setURI(repoURL)
                     .setDirectory(localPath)
                     .call();
-            System.out.println("Repository cloned -> " + git.getRepository().getDirectory());
+           System.out.println("Repository cloned -> " + git.getRepository().getDirectory());
         } catch (Exception err) {
             System.out.println("Error creating repository");
             System.out.println(err.getMessage());
