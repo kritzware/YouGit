@@ -5,12 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
 
-
-
-import org.eclipse.jgit.api.errors.GitAPIException;
 
 import java.io.IOException;
 
@@ -23,6 +20,8 @@ public class Main extends Application {
         launch(args);
 
     }
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
@@ -35,7 +34,7 @@ public class Main extends Application {
             closeProgram();
         });
       
-        Scene scene = new Scene(root, 1366, 768);
+        Scene scene = new Scene(root);
 
         window.setScene(scene);
         window.show();
