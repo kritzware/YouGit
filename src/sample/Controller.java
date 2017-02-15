@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import org.eclipse.jgit.api.Git;
+ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 
 import javax.swing.filechooser.FileSystemView;
@@ -114,18 +114,18 @@ public class Controller implements Initializable{
         final String REMOTE = repository_to_clone.getText();
 
         File local_path = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/YouGitRepos/");
-//        if(!local_path.delete()) {
-//            throw new IOException("Could not delete temp file " + local_path);
-//        }
+    if(!local_path.delete()) {
+            throw new IOException("Could not delete temp file " + local_path);
+        }
 
-        System.out.println(local_path.getParent());
+      System.out.println(local_path.getParent());
 
-        Git repo = Git.cloneRepository()
+       Git repo = Git.cloneRepository()
                 .setURI(REMOTE)
                 .setDirectory(local_path)
                 .call();
 
-        System.out.println("Repository cloned -> " + repo.getRepository().getDirectory());
+    System.out.println("Repository cloned -> " + repo.getRepository().getDirectory());
     }
 
-}
+
