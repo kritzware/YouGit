@@ -74,9 +74,9 @@ public class Repository {
 
     }
 
-    public List<Ref> getBranches() {
-        List<Ref> call = this.git.branchList()
-    }
+//    public List<Ref> getBranches() {
+//        List<Ref> call = this.git.branchList()
+//    }
 
     public void displayFiles() {
         File repoFiles = new File(FileSystemView
