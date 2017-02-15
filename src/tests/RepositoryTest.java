@@ -66,6 +66,12 @@ public class RepositoryTest {
         }
     }
 
+    @Test(expected = Error.class)
+    public void getRepositoryBranches() {
+        Repository repo = new Repository("kritzbot", "https://github.com/kritzware/kritzbot.git");
+        System.out.println(repo.getBranches());
+    }
+
     @BeforeClass
     public static void preTest() {
         System.out.println("Deleting test files");

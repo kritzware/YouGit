@@ -6,6 +6,8 @@ import org.eclipse.jgit.api.errors.GitAPIException;
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Ref;
+import java.util.List;
 
 public class Repository {
 
@@ -72,8 +74,17 @@ public class Repository {
 
     }
 
-    public String toString() {
-        return "wasd";
+    public List<Ref> getBranches() {
+        List<Ref> call = this.git.branchList()
+    }
+
+    public void displayFiles() {
+        File repoFiles = new File(FileSystemView
+                .getFileSystemView()
+                .getDefaultDirectory()
+                .getPath()
+                + "/YouGitRepos/" + this.repoName + "/");
+        System.out.println(repoFiles);
     }
 
 }

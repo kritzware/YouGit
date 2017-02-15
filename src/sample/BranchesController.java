@@ -1,7 +1,13 @@
 package sample;
 
-/**
- * Created by Akman on 09/02/2017.
- */
 public class BranchesController {
+
+    public static void load(Repository repo) {
+
+        System.out.println("Loading branches");
+
+
+
+    }
+
 }

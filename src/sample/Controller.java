@@ -23,6 +23,8 @@ import javafx.scene.control.Button;
 
 public class Controller implements Initializable{
 
+    public Repository repo;
+
     @FXML
     private Button bt1;
 
@@ -47,30 +49,33 @@ public class Controller implements Initializable{
 
         if(event.getSource() == bt1){
             stage = (Stage) bt1.getScene().getWindow();
-
             root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             System.out.println("Success sample");
 
-        }else if(event.getSource() == bt2){
+        }
+        else if(event.getSource() == bt2){
             stage = (Stage) bt2.getScene().getWindow();
-
             root = FXMLLoader.load(getClass().getResource("Branches.fxml"));
             System.out.println("Success on branches");
-        }else if(event.getSource() == bt3){
+        }
+        else if(event.getSource() == bt3){
             stage = (Stage) bt3.getScene().getWindow();
-
             root = FXMLLoader.load(getClass().getResource("TimeLine.fxml"));
             System.out.println("Success Timeline");
-        }else {
-            stage = (Stage) bt4.getScene().getWindow();
-
-            root = FXMLLoader.load(getClass().getResource("Browse.fxml"));
-            System.out.println("Success on browse");
         }
+        else {
+            stage = (Stage) bt4.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Browse.fxml"));
+
+            repo = BrowseController.newRepository();
+            BranchesController.load(repo);
+        }
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        }
+
+    }
 
 
     public void CutButton(){
