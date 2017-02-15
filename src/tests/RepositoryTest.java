@@ -8,15 +8,11 @@ import java.io.File;
 
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by Louis on 06/02/2017.
- */
-
 public class RepositoryTest {
 
     private Repository testRepo;
 
-   // @Test(expected = Error.class)
+    @Test(expected = Error.class)
     public void initRepositoryNew() {
         testRepo = new Repository("unitTest");
         File newRepoBase = new File(FileSystemView
@@ -66,17 +62,13 @@ public class RepositoryTest {
         }
     }
 
-<<<<<<< HEAD
     @Test(expected = Error.class)
     public void getRepositoryBranches() {
         Repository repo = new Repository("kritzbot", "https://github.com/kritzware/kritzbot.git");
-        System.out.println(repo.getBranches());
+//        System.out.println(repo.getBranches());
     }
 
-    @BeforeClass
-=======
-   // @BeforeClass
->>>>>>> af1e54cdba1633648beedf4599dda514fc9b6708
+   @BeforeClass
     public static void preTest() {
         System.out.println("Deleting test files");
         File repoTest = new File(FileSystemView
@@ -98,7 +90,7 @@ public class RepositoryTest {
         }
     }
 
-   // @AfterClass
+    @AfterClass
     public static void cleanup() {
         System.out.println("Deleting test files");
         File repoTest = new File(FileSystemView

@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 
-public class Controller implements Initializable{
+public class Controller implements Initializable {
 
     public Repository repo;
 
@@ -39,31 +39,27 @@ public class Controller implements Initializable{
     private Button bt4;
 
 
-
     Stage stage;
 
     Parent root;
 
     @FXML
-    public void ClickedAction(ActionEvent event) throws IOException{
+    public void ClickedAction(ActionEvent event) throws IOException {
 
-        if(event.getSource() == bt1){
+        if (event.getSource() == bt1) {
             stage = (Stage) bt1.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             System.out.println("Success sample");
 
-        }
-        else if(event.getSource() == bt2){
+        } else if (event.getSource() == bt2) {
             stage = (Stage) bt2.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Branches.fxml"));
             System.out.println("Success on branches");
-        }
-        else if(event.getSource() == bt3){
+        } else if (event.getSource() == bt3) {
             stage = (Stage) bt3.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("TimeLine.fxml"));
             System.out.println("Success Timeline");
-        }
-        else {
+        } else {
             stage = (Stage) bt4.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Browse.fxml"));
 
@@ -78,27 +74,28 @@ public class Controller implements Initializable{
     }
 
 
-    public void CutButton(){
+    public void CutButton() {
 
         System.out.println("Create Cut");
 
     }
 
-    public void CopyButton(){
+    public void CopyButton() {
 
         System.out.println("Copy...");
 
     }
 
-    public void PasteButton(){
+    public void PasteButton() {
 
         System.out.println("Paste function");
 
     }
 
-    public void ExitButton(){
+    public void ExitButton() {
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -114,18 +111,19 @@ public class Controller implements Initializable{
         final String REMOTE = repository_to_clone.getText();
 
         File local_path = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/YouGitRepos/");
-    if(!local_path.delete()) {
+        if (!local_path.delete()) {
             throw new IOException("Could not delete temp file " + local_path);
         }
 
-      System.out.println(local_path.getParent());
+        System.out.println(local_path.getParent());
 
-       Git repo = Git.cloneRepository()
+        Git repo = Git.cloneRepository()
                 .setURI(REMOTE)
                 .setDirectory(local_path)
                 .call();
 
-    System.out.println("Repository cloned -> " + repo.getRepository().getDirectory());
+        System.out.println("Repository cloned -> " + repo.getRepository().getDirectory());
     }
+}
 
 
