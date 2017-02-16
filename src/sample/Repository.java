@@ -2,12 +2,12 @@ package sample;
 
  import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.GitAPIException;
+ import org.eclipse.jgit.lib.Ref;
+ import javax.swing.filechooser.FileSystemView;
 
-import javax.swing.filechooser.FileSystemView;
 import java.io.File;
-import java.io.IOException;
-import java.sql.Ref;
-import java.util.List;
+ import java.util.ArrayList;
+ import java.util.List;
 
 public class Repository {
 
@@ -74,9 +74,24 @@ public class Repository {
 
     }
 
-//    public List<Ref> getBranches() {
-//        List<Ref> call = this.git.branchList()
-//    }
+    public List<Ref> getBranches() throws GitAPIException {
+        List<Ref> branches = new ArrayList<>();
+        List<Ref> call = this.git.branchList().call();
+        for(Ref ref : call) {
+            branches.add(ref);
+//            System.out.println("Branch: " + ref + " " + ref.getName() + " " + ref.getObjectId().getName());
+        }
+        call = git.branchList().setListMode(ListBranchCommand.ListMode.ALL).call();
+        for(Ref ref : call) {
+            branches.add(ref);
+//            System.out.println("Branch: " + ref + " " + ref.getName() + " " + ref.getObjectId().getName());
+        }
+        return branches;
+    }
+
+    public String getBranchName(Ref branch) {
+        return branch.getName();
+    }
 
     public void displayFiles() {
         File repoFiles = new File(FileSystemView

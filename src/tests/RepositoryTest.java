@@ -1,11 +1,16 @@
 package tests;
 
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.Ref;
 import org.junit.*;
 import sample.Repository;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
+import java.util.Iterator;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class RepositoryTest {
@@ -26,7 +31,7 @@ public class RepositoryTest {
                 .getPath()
                 + "/YouGitRepos/unitTest/.git/");
 
-       assertTrue("it should create a local repository", newRepoBase.exists());
+        assertTrue("it should create a local repository", newRepoBase.exists());
         assertTrue("it should contain a .git folder", newRepoGit.exists());
 
         try {
@@ -37,7 +42,7 @@ public class RepositoryTest {
         }
     }
 
- //   @Test(expected = Error.class)
+    @Test(expected = Error.class)
     public void initRepositoryClone() {
         Repository repository = new Repository("kritzbot", "https://github.com/kritzware/kritzbot.git");
         File newRepoBase = new File(FileSystemView
@@ -51,21 +56,26 @@ public class RepositoryTest {
                 .getPath()
                 + "/YouGitRepos/kritzbot/.git/");
 
-   //     assertTrue("it should clone a remote repository", newRepoBase.exists());
-     //   assertTrue("it should contain a .git folder", newRepoGit.exists());
+        assertTrue("it should clone a remote repository", newRepoBase.exists());
+        assertTrue("it should contain a .git folder", newRepoGit.exists());
 
         try {
             Repository dupe = new Repository("kritzbot", "https://github.com/kritzware/kritzbot.git");
-       //     Assert.fail("it should throw an error if the repository already exists");
+            Assert.fail("it should throw an error if the repository already exists");
         } catch (Exception err) {
             System.out.println(err.getMessage());
         }
     }
 
-    @Test(expected = Error.class)
-    public void getRepositoryBranches() {
+    @Test
+    public void getRepositoryBranches() throws GitAPIException {
         Repository repo = new Repository("kritzbot", "https://github.com/kritzware/kritzbot.git");
-//        System.out.println(repo.getBranches());
+        List<Ref> branches = repo.getBranches();
+        for(Iterator<Ref> iter = branches.iterator(); iter.hasNext();) {
+            Ref branch = iter.next();
+            System.out.println(repo.getBranchName(branch));
+        }
+        assertEquals(repo.getBranchName(branches.get(0)), "refs/heads/master");
     }
 
    @BeforeClass
