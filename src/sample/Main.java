@@ -18,7 +18,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
     }
 
 
@@ -38,7 +37,6 @@ public class Main extends Application {
 
         window.setScene(scene);
         window.show();
-
     }
 
 
@@ -46,7 +44,6 @@ public class Main extends Application {
        Boolean answer = ConfirmBox.display("Title", "Sure you want to exit?");
        if(answer)
            window.close();
-
     }
 
 }

@@ -3,23 +3,20 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.TextField;
- import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
-
-import javax.swing.filechooser.FileSystemView;
-import java.io.File;
-import java.io.IOException;
-import javafx.scene.Parent;
-
 import javafx.fxml.Initializable;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.Ref;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
@@ -44,7 +41,7 @@ public class Controller implements Initializable {
     Parent root;
 
     @FXML
-    public void ClickedAction(ActionEvent event) throws IOException {
+    public void ClickedAction(ActionEvent event) throws IOException, GitAPIException {
 
         if (event.getSource() == bt1) {
             stage = (Stage) bt1.getScene().getWindow();
@@ -54,7 +51,13 @@ public class Controller implements Initializable {
         } else if (event.getSource() == bt2) {
             stage = (Stage) bt2.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Branches.fxml"));
-            System.out.println("Success on branches");
+
+            System.out.println(repo);
+
+            /* Load repository branches (remote/local) */
+            List<Ref> branches = BranchesController.load(repo);
+            System.out.println(branches);
+
         } else if (event.getSource() == bt3) {
             stage = (Stage) bt3.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("TimeLine.fxml"));
@@ -64,7 +67,6 @@ public class Controller implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Browse.fxml"));
 
             repo = BrowseController.newRepository();
-            BranchesController.load(repo);
         }
 
         Scene scene = new Scene(root);
@@ -96,33 +98,24 @@ public class Controller implements Initializable {
 
     }
 
+    /* init method that loads when controller is started */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-    }
-
-
-    @FXML
-    private TextField repository_to_clone;
-
-    @FXML
-    public void cloneRepository(ActionEvent event) throws IOException, GitAPIException {
-
-        final String REMOTE = repository_to_clone.getText();
-
-        File local_path = new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/YouGitRepos/");
-        if (!local_path.delete()) {
-            throw new IOException("Could not delete temp file " + local_path);
+        /* Load conf.yougit into a hashmap for easy value access */
+        HashMap<String, Object> config = null;
+        try {
+            config = Config.loadConfig();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        if(config == null) {
+            /* Create new repository modal */
 
-        System.out.println(local_path.getParent());
+        } else {
+            /* Load existing repository */
 
-        Git repo = Git.cloneRepository()
-                .setURI(REMOTE)
-                .setDirectory(local_path)
-                .call();
-
-        System.out.println("Repository cloned -> " + repo.getRepository().getDirectory());
+        }
     }
 }
 
