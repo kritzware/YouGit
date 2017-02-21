@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <top>
+        <VBox prefHeight="71.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#ClickedAction" text="New" />
+                                <MenuItem mnemonicParsing="false" text="Exit" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Cut" />
+                                <MenuItem mnemonicParsing="false" text="Copy" />
+                                <MenuItem mnemonicParsing="false" text="Paste" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="View">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Action 1" />
+                                <Menu mnemonicParsing="false" text="Zoom">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="110%" />
+                                    </items>
+                                </Menu>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Action 1" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <HBox prefHeight="65.0" prefWidth="600.0">
+                    <children>
+                        <Button fx:id="bt1" mnemonicParsing="false" onAction="#ClickedAction" text="File Explorer">
+                            <HBox.margin>
+                                <Insets left="200.0" right="40.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="bt2" mnemonicParsing="false" onAction="#ClickedAction" text="Branches">
+                            <HBox.margin>
+                                <Insets right="40.0" />
+                            </HBox.margin></Button>
+                        <Button fx:id="bt3" mnemonicParsing="false" onAction="#ClickedAction" text="Timeline">
+                            <HBox.margin>
+                                <Insets right="40.0" />
+                            </HBox.margin></Button>
+                  <Button fx:id="bt4" mnemonicParsing="false" onAction="#ClickedAction" text="Browse" />
+                        <TextField promptText="Search">
+                            <HBox.margin>
+                                <Insets left="220.0" />
+                            </HBox.margin>
+                        </TextField>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <bottom>
+        <HBox prefHeight="291.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+            <children>
+                <TreeView prefHeight="211.0" prefWidth="27.0">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="100.0" left="300.0" />
+                    </padding>
+                </TreeView>
+                <TextField prefHeight="26.0" prefWidth="470.0" promptText="Your on Branch Tab, Enter a command!">
+                    <HBox.margin>
+                        <Insets top="265.0" />
+                    </HBox.margin>
+                </TextField>
+                <ImageView fitHeight="200.0" fitWidth="184.0">
+                    <image>
+                        <Image url="@mascot3.png" />
+                    </image>
+                    <HBox.margin>
+                        <Insets left="50.0" top="90.0" />
+                    </HBox.margin>
+                </ImageView>
+            </children>
+        </HBox>
+    </bottom>
+    <left>
+        <ListView prefHeight="264.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </left>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="234.0" fitWidth="798.0">
+               <image>
+                  <Image url="@Testbranch.png" />
+               </image>
+            </ImageView>
+         </children></HBox>
+   </center>
+</BorderPane>
