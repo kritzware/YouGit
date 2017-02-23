@@ -1,7 +1,9 @@
 package sample;
 
-import javax.swing.filechooser.FileSystemView;
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Scanner;
 

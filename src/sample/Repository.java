@@ -3,6 +3,8 @@ package sample;
  import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.GitAPIException;
  import org.eclipse.jgit.lib.Ref;
+ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+
  import javax.swing.filechooser.FileSystemView;
 
 import java.io.File;
@@ -62,6 +64,30 @@ public class Repository {
         }
     }
 
+    public Repository(String repoName, Git existingRepo) {
+        this.repoName = repoName;
+        git = existingRepo;
+    }
+
+    public static Repository loadExisitingRepository(String name) {
+        Repository existing = null;
+        File repoDir = new File(FileSystemView
+                .getFileSystemView()
+                .getDefaultDirectory()
+                .getPath()
+                + "/YouGitRepos/" + name + "/");
+        FileRepositoryBuilder builder = new FileRepositoryBuilder();
+        try (org.eclipse.jgit.lib.Repository repository = builder.setGitDir(repoDir)
+                .readEnvironment()
+                .findGitDir()
+                .build()) {
+            existing = new Repository(name, new Git(repository));
+        } catch(Exception e) {
+            e.getCause().getStackTrace();
+        }
+        return existing;
+    }
+
     public void add(File file) {
 
     }
@@ -79,12 +105,12 @@ public class Repository {
         List<Ref> call = this.git.branchList().call();
         for(Ref ref : call) {
             branches.add(ref);
-//            System.out.println("Branch: " + ref + " " + ref.getName() + " " + ref.getObjectId().getName());
+            System.out.println("Branch: " + ref + " " + ref.getName() + " " + ref.getObjectId().getName());
         }
         call = git.branchList().setListMode(ListBranchCommand.ListMode.ALL).call();
         for(Ref ref : call) {
             branches.add(ref);
-//            System.out.println("Branch: " + ref + " " + ref.getName() + " " + ref.getObjectId().getName());
+            System.out.println("Branch: " + ref + " " + ref.getName() + " " + ref.getObjectId().getName());
         }
         return branches;
     }

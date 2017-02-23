@@ -9,13 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.lib.Ref;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -37,6 +34,17 @@ public class Controller implements Initializable {
 
     public void setConfig(HashMap<String, Object> config) {
         this.config = config;
+    }
+
+    public void init() {
+        if(config == null) {
+            /* Create new repository modal (option to clone/create new) */
+
+        } else {
+            /* Load existing repository */
+            repo = Repository.loadExisitingRepository((String)config.get("repo"));
+            System.out.println("Loaded existing repo -> " + repo.getRepoName());
+        }
     }
 
     @FXML
@@ -99,18 +107,10 @@ public class Controller implements Initializable {
 
     }
 
-    /* init method that loads when controller is started */
+    /* init method that loads when controller is started (changing fxml views) */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-
-//        if(config == null) {
-//            /* Create new repository modal (option to clone/create new) */
-//
-//        } else {
-//            /* Load existing repository */
-//
-//        }
     }
 }
 

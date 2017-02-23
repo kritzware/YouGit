@@ -23,8 +23,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
 
         /* Load conf.yougit into a hashmap for easy value access */
@@ -51,13 +49,15 @@ public class Main extends Application {
 
         window.setScene(scene);
         window.show();
+        controller.init();
     }
 
 
     private void closeProgram(){
-       Boolean answer = ConfirmBox.display("Title", "Sure you want to exit?");
-       if(answer)
-           window.close();
+//       Boolean answer = ConfirmBox.display("Title", "Sure you want to exit?");
+//       if(answer)
+//           window.close();
+        window.close();
     }
 
 }
