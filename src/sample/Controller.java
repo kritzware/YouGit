@@ -110,11 +110,11 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
         if(config == null) {
-            /* Create new repository modal */
+            /* Create new repository modal (option to clone/create new) */
 
         } else {
             /* Load existing repository */
-
+            
         }
     }
 }
