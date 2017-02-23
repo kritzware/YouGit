@@ -21,24 +21,23 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     public Repository repo;
+    private HashMap<String, Object> config;
 
     @FXML
     private Button bt1;
-
     @FXML
     private Button bt2;
-
     @FXML
     private Button bt3;
-
-
     @FXML
     private Button bt4;
 
-
     Stage stage;
-
     Parent root;
+
+    public void setConfig(HashMap<String, Object> config) {
+        this.config = config;
+    }
 
     @FXML
     public void ClickedAction(ActionEvent event) throws IOException, GitAPIException {
@@ -46,7 +45,7 @@ public class Controller implements Initializable {
         if (event.getSource() == bt1) {
             stage = (Stage) bt1.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-            System.out.println("Success sample");
+//            MainViewController.render(stage, repo);
 
         } else if (event.getSource() == bt2) {
             stage = (Stage) bt2.getScene().getWindow();
@@ -55,8 +54,8 @@ public class Controller implements Initializable {
             System.out.println(repo);
 
             /* Load repository branches (remote/local) */
-            List<Ref> branches = BranchesController.load(repo);
-            System.out.println(branches);
+//            List<Ref> branches = BranchesController.load(repo);
+//            System.out.println(branches);
 
         } else if (event.getSource() == bt3) {
             stage = (Stage) bt3.getScene().getWindow();
@@ -65,8 +64,10 @@ public class Controller implements Initializable {
         } else {
             stage = (Stage) bt4.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Browse.fxml"));
-
-            repo = BrowseController.newRepository();
+//
+//            repo = BrowseController.newRepository();
+//            Config.createConfig();
+//            Config.addKey("repo", repo.getRepoName());
         }
 
         Scene scene = new Scene(root);
@@ -102,20 +103,14 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        /* Load conf.yougit into a hashmap for easy value access */
-        HashMap<String, Object> config = null;
-        try {
-            config = Config.loadConfig();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if(config == null) {
-            /* Create new repository modal (option to clone/create new) */
 
-        } else {
-            /* Load existing repository */
-            
-        }
+//        if(config == null) {
+//            /* Create new repository modal (option to clone/create new) */
+//
+//        } else {
+//            /* Load existing repository */
+//
+//        }
     }
 }
 

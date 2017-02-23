@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.HashMap;
 
 
 public class Main extends Application {
@@ -20,11 +21,24 @@ public class Main extends Application {
         launch(args);
     }
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-      
+//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
+
+        /* Load conf.yougit into a hashmap for easy value access */
+        HashMap<String, Object> config = null;
+        try {
+            config = Config.loadConfig();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Parent root = (Parent)fxmlLoader.load();
+        Controller controller = fxmlLoader.<Controller>getController();
+        controller.setConfig(config);
+
         primaryStage.setTitle("YouGit");
 
         window = primaryStage;

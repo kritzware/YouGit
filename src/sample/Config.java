@@ -23,6 +23,7 @@ public class Config {
             String[] splitLine = current.split("=");
             confMap.put(splitLine[0], splitLine[1]);
         }
+        System.out.println("Successfully found and loaded config");
         return confMap;
     }
 

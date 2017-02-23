@@ -102,4 +102,16 @@ public class Repository {
         System.out.println(repoFiles);
     }
 
+    public String getRepoName() {
+        return repoName;
+    }
+
+    public String getRepoURL() {
+        return repoURL;
+    }
+
+    public String toString() {
+        return "repoName: " + repoName + ", repoURL: " + repoURL;
+    }
+
 }
