@@ -1,4 +1,4 @@
-package sample;
+package main;
 
  import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.GitAPIException;

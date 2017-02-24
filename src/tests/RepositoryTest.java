@@ -3,7 +3,7 @@ package tests;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Ref;
 import org.junit.*;
-import sample.Repository;
+import main.Repository;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;

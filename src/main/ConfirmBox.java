@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import javafx.stage.*;
 import javafx.scene.*;

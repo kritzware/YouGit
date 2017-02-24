@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
     <top>
         <VBox prefHeight="71.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
@@ -84,14 +84,14 @@
                         <Insets bottom="100.0" left="300.0" />
                     </padding>
                 </TreeView>
-                <TextField prefHeight="26.0" prefWidth="470.0" promptText="Your on Branch Tab, Enter a command!">
+                <TextField prefHeight="26.0" prefWidth="470.0" promptText="Your on Timeline Tab, Enter a command!">
                     <HBox.margin>
                         <Insets top="265.0" />
                     </HBox.margin>
                 </TextField>
                 <ImageView fitHeight="200.0" fitWidth="184.0">
                     <image>
-                        <Image url="@mascot3.png" />
+                        <Image url="@../assets/mascot3.png" />
                     </image>
                     <HBox.margin>
                         <Insets left="50.0" top="90.0" />
@@ -103,14 +103,15 @@
     <left>
         <ListView prefHeight="264.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
     </left>
-   <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+    <center>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="234.0" fitWidth="798.0">
+            <ImageView fitHeight="237.0" fitWidth="799.0">
                <image>
-                  <Image url="@Testbranch.png" />
+                  <Image url="@../assets/TimelineTest.png" />
                </image>
             </ImageView>
-         </children></HBox>
-   </center>
+         </children>
+        </HBox>
+    </center>
 </BorderPane>

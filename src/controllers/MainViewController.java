@@ -1,6 +1,7 @@
-package sample;
+package controllers;
 
 import javafx.stage.Stage;
+import main.Repository;
 
 public class MainViewController {
 
