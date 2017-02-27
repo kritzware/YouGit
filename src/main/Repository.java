@@ -3,12 +3,16 @@ package main;
  import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.GitAPIException;
  import org.eclipse.jgit.lib.Ref;
+ import org.eclipse.jgit.revwalk.RevCommit;
  import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
  import javax.swing.filechooser.FileSystemView;
 
 import java.io.File;
+ import java.io.IOException;
  import java.util.ArrayList;
+ import java.util.HashMap;
+ import java.util.Iterator;
  import java.util.List;
 
 public class Repository {
@@ -75,7 +79,7 @@ public class Repository {
                 .getFileSystemView()
                 .getDefaultDirectory()
                 .getPath()
-                + "/YouGitRepos/" + name + "/");
+                + "/YouGitRepos/" + name + "/.git/");
         FileRepositoryBuilder builder = new FileRepositoryBuilder();
         try (org.eclipse.jgit.lib.Repository repository = builder.setGitDir(repoDir)
                 .readEnvironment()
@@ -117,6 +121,16 @@ public class Repository {
 
     public String getBranchName(Ref branch) {
         return branch.getName();
+    }
+
+    public HashMap<String,String> getCommits() throws IOException, GitAPIException {
+        HashMap<String,String> commitsMap = new HashMap<>();
+        Iterable<RevCommit> commits = this.git.log().all().call();
+        for(Iterator<RevCommit> iterator = commits.iterator(); iterator.hasNext();) {
+            RevCommit commit = iterator.next();
+            commitsMap.put(commit.getName(), commit.getFullMessage());
+        }
+        return commitsMap;
     }
 
     public void displayFiles() {
