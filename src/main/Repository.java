@@ -10,10 +10,7 @@ import org.eclipse.jgit.api.errors.GitAPIException;
 
 import java.io.File;
  import java.io.IOException;
- import java.util.ArrayList;
- import java.util.HashMap;
- import java.util.Iterator;
- import java.util.List;
+ import java.util.*;
 
 public class Repository {
 
@@ -131,6 +128,44 @@ public class Repository {
             commitsMap.put(commit.getName(), commit.getFullMessage());
         }
         return commitsMap;
+    }
+
+    public void getUncommitedChanges() throws GitAPIException {
+        Status status = this.git.status().call();
+
+        Set<String> conflicting = status.getConflicting();
+        for(String conflict : conflicting) {
+            System.out.println(conflict);
+        }
+
+        Set<String> added = status.getAdded();
+        for(String add : added) {
+            System.out.println(add);
+        }
+
+        Set<String> changed = status.getChanged();
+        for(String change : changed) {
+            System.out.println(change);
+        }
+
+        Set<String> modified = status.getModified();
+        for(String modify : modified) {
+            System.out.println(modify);
+        }
+    }
+
+    public void status() throws GitAPIException {
+        Status status = this.git.status().call();
+        System.out.println("Added: " + status.getAdded());
+        System.out.println("Changed: " + status.getChanged());
+        System.out.println("Conflicting: " + status.getConflicting());
+        System.out.println("ConflictingStageState: " + status.getConflictingStageState());
+        System.out.println("IgnoredNotInIndex: " + status.getIgnoredNotInIndex());
+        System.out.println("Missing: " + status.getMissing());
+        System.out.println("Modified: " + status.getModified());
+        System.out.println("Removed: " + status.getRemoved());
+        System.out.println("Untracked: " + status.getUntracked());
+        System.out.println("UntrackedFolders: " + status.getUntrackedFolders());
     }
 
     public void displayFiles() {
