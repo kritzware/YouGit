@@ -57,3 +57,4 @@ jspm_packages
 
 # IDE
 .idea/workspace.xml
+.idea/misc.xml
