@@ -44,22 +44,33 @@
             </Menu>
           </menus>
         </MenuBar>
-        <HBox prefHeight="65.0" prefWidth="600.0">
+        <HBox prefHeight="36.0" prefWidth="1000.0">
           <children>
+                  <ImageView fitHeight="36.0" fitWidth="38.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Plusbutton.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="50.0" top="7.0" />
+                     </HBox.margin>
+                  </ImageView>
             <Button fx:id="bt1" mnemonicParsing="false" onAction="#ClickedAction" text="File Explorer">
                      <HBox.margin>
-                        <Insets left="200.0" right="40.0" />
+                        <Insets left="110.0" right="40.0" top="5.0" />
                      </HBox.margin>
             </Button>
             <Button fx:id="bt2" mnemonicParsing="false" onAction="#ClickedAction" text="Branches">
                      <HBox.margin>
-                        <Insets right="40.0" />
+                        <Insets right="40.0" top="5.0" />
                      </HBox.margin></Button>
             <Button fx:id="bt3" mnemonicParsing="false" onAction="#ClickedAction" text="Timeline">
                      <HBox.margin>
-                        <Insets right="40.0" />
+                        <Insets right="40.0" top="5.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="bt4" mnemonicParsing="false" onAction="#ClickedAction" text="Browse" />
+                  <Button fx:id="bt4" mnemonicParsing="false" onAction="#ClickedAction" prefHeight="27.0" prefWidth="75.0" text="Browse">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></Button>
                   <TextField promptText="Search">
                      <HBox.margin>
                         <Insets left="220.0" />
