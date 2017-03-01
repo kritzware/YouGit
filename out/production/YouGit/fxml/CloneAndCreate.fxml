@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
@@ -45,6 +46,13 @@
                     </menus>
                 </MenuBar>
                 <HBox prefHeight="65.0" prefWidth="600.0">
+                    <children>
+                        <TextField promptText="Search">
+                            <HBox.margin>
+                                <Insets left="850.0" />
+                            </HBox.margin>
+                        </TextField>
+                    </children>
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
@@ -53,29 +61,17 @@
         </VBox>
     </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="509.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
          <children>
-            <HBox prefHeight="434.0" prefWidth="322.0">
+            <SplitPane prefHeight="529.0" prefWidth="549.0">
                <HBox.margin>
-                  <Insets bottom="200.0" />
+                  <Insets left="100.0" />
                </HBox.margin>
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CLONE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="120.0" top="60.0" />
-                     </HBox.margin>
-                  </Text>
-                  <Button mnemonicParsing="false" text="Button" />
-               </children>
-            </HBox>
-            <HBox prefHeight="329.0" prefWidth="276.0">
-               <HBox.margin>
-                  <Insets bottom="200.0" />
-               </HBox.margin>
-            </HBox>
+            </SplitPane>
+            <SplitPane prefHeight="529.0" prefWidth="594.0" />
          </children>
       </HBox>
    </center>
