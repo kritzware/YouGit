@@ -70,7 +70,7 @@ public class Repository {
         git = existingRepo;
     }
 
-    public static Repository loadExisitingRepository(String name) {
+    public static Repository loadExistingRepository(String name) {
         Repository existing = null;
         File repoDir = new File(FileSystemView
                 .getFileSystemView()

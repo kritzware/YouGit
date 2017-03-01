@@ -50,7 +50,7 @@ public class Controller implements Initializable {
 
         } else {
             /* Load existing repository */
-            repo = Repository.loadExisitingRepository((String)config.get("repo"));
+            repo = Repository.loadExistingRepository((String)config.get("repo"));
             System.out.println("Loaded existing repo -> " + repo.getRepoName());
         }
     }
