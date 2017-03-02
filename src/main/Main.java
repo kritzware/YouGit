@@ -35,6 +35,7 @@ public class Main extends Application {
         Controller controller = fxmlLoader.<Controller>getController();
         controller.setConfig(config);
 
+
         primaryStage.setTitle("YouGit");
 
         window = primaryStage;

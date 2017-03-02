@@ -44,22 +44,29 @@
             </Menu>
           </menus>
         </MenuBar>
-        <HBox prefHeight="65.0" prefWidth="600.0">
+        <HBox prefHeight="36.0" prefWidth="1000.0">
           <children>
+                  <ImageView fitHeight="36.0" fitWidth="38.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Plusbutton.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="50.0" top="7.0" />
+                     </HBox.margin>
+                  </ImageView>
             <Button fx:id="bt1" mnemonicParsing="false" onAction="#ClickedAction" text="File Explorer">
                      <HBox.margin>
-                        <Insets left="200.0" right="40.0" />
+                        <Insets left="120.0" right="40.0" top="5.0" />
                      </HBox.margin>
             </Button>
-            <Button fx:id="bt2" mnemonicParsing="false" onAction="#ClickedAction" text="Branches">
+            <Button fx:id="cloneandcreate" mnemonicParsing="false" onAction="#ClickedAction" text="Clone">
                      <HBox.margin>
-                        <Insets right="40.0" />
+                        <Insets right="40.0" top="5.0" />
                      </HBox.margin></Button>
-            <Button fx:id="bt3" mnemonicParsing="false" onAction="#ClickedAction" text="Timeline">
+                  <Button fx:id="bt4" mnemonicParsing="false" onAction="#ClickedAction" prefHeight="27.0" prefWidth="75.0" text="Browse">
                      <HBox.margin>
-                        <Insets right="40.0" />
+                        <Insets right="105.0" top="5.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="bt4" mnemonicParsing="false" onAction="#ClickedAction" text="Browse" />
                   <TextField promptText="Search">
                      <HBox.margin>
                         <Insets left="220.0" />
@@ -75,35 +82,73 @@
   </top>
   <bottom>
     <HBox prefHeight="291.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
-      <children>
-        <TreeView prefHeight="211.0" prefWidth="27.0">
-          <HBox.margin>
-            <Insets />
-          </HBox.margin>
-          <padding>
-            <Insets bottom="100.0" left="300.0" />
-          </padding>
-        </TreeView>
-        <TextField prefHeight="26.0" prefWidth="470.0" promptText="Enter A Command">
-          <HBox.margin>
-            <Insets top="265.0" />
-          </HBox.margin>
-        </TextField>
-        <ImageView fitHeight="200.0" fitWidth="184.0">
-          <image>
-            <Image url="@../assets/mascot3.png" />
-          </image>
-               <HBox.margin>
-                  <Insets left="50.0" top="90.0" />
-               </HBox.margin>
-        </ImageView>
-      </children>
+         <children>
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="291.0" prefWidth="1093.0">
+              <items>
+                <AnchorPane maxWidth="200.0" minHeight="0.0" minWidth="0.0" prefHeight="289.0" prefWidth="205.0">
+                     <children>
+                        <TextField layoutY="253.0" prefHeight="35.0" prefWidth="291.0" promptText="Chat" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="289.0" prefWidth="500.0">
+                     <children>
+                    <ImageView fitHeight="286.0" fitWidth="220.0" layoutX="573.0" layoutY="1.0">
+                      <image>
+                        <Image url="@../assets/mascot3.png" />
+                      </image>
+                    </ImageView>
+                        <TextField layoutX="-1.0" layoutY="254.0" prefHeight="36.0" prefWidth="599.0" promptText="Enter Commands" />
+                        <ScrollPane layoutX="-3.0" layoutY="2.0" prefHeight="255.0" prefWidth="599.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="598.0">
+                                 <children>
+                                    <Button layoutX="112.0" layoutY="61.0" mnemonicParsing="false" text="Button" />
+                                 </children></AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
     </HBox>
   </bottom>
   <left>
     <ListView prefHeight="264.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
   </left>
-  <center>
-    <ListView prefHeight="187.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
-  </center>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="INFO">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab text="Branches">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="200.0" fitWidth="798.0" layoutY="-1.0">
+                           <image>
+                              <Image url="@../assets/Testbranch.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Timeline">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="201.0" fitWidth="796.0" layoutX="1.0" layoutY="-2.0">
+                           <image>
+                              <Image url="@../assets/TimelineTest.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
 </BorderPane>

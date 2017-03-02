@@ -10,7 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.eclipse.jgit.api.errors.GitAPIException;
 
@@ -32,6 +33,19 @@ public class Controller implements Initializable {
     private Button bt3;
     @FXML
     private Button bt4;
+    @FXML
+    private Button cloneandcreate;
+    @FXML
+    private Button clone;
+
+    @FXML
+    private Button create;
+
+
+
+
+    @FXML
+    TabPane tabPane;
 
     Stage stage;
     Parent root;
@@ -64,6 +78,7 @@ public class Controller implements Initializable {
         String loadController = null;
 
         if(event.getSource() == bt1) {
+           // stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/Main.fxml"));
             root = fxmlLoader.load();
             Controller controller = fxmlLoader.<Controller>getController();
@@ -71,9 +86,9 @@ public class Controller implements Initializable {
             controller.setRepository(repo);
             stage = (Stage) bt1.getScene().getWindow();
             loadController = "main";
-        }
 
-        if(event.getSource() == bt2) {
+        }else if(event.getSource() == bt2) {
+            stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/Branches.fxml"));
             root = fxmlLoader.load();
             Controller controller = fxmlLoader.<Controller>getController();
@@ -81,9 +96,8 @@ public class Controller implements Initializable {
             controller.setRepository(repo);
             stage = (Stage) bt1.getScene().getWindow();
             loadController = "branches";
-        }
 
-        if(event.getSource() == bt3) {
+        }else if(event.getSource() == bt3) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/TimeLine.fxml"));
             root = fxmlLoader.load();
             Controller controller = fxmlLoader.<Controller>getController();
@@ -91,9 +105,8 @@ public class Controller implements Initializable {
             controller.setRepository(repo);
             stage = (Stage) bt1.getScene().getWindow();
             loadController = "timeline";
-        }
 
-        if(event.getSource() == bt4) {
+        }else if(event.getSource() == bt4) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/Browse.fxml"));
             root = fxmlLoader.load();
             Controller controller = fxmlLoader.<Controller>getController();
@@ -101,7 +114,33 @@ public class Controller implements Initializable {
             controller.setRepository(repo);
             stage = (Stage) bt1.getScene().getWindow();
             loadController = "browse";
+
+        }else if(event.getSource() == cloneandcreate) {
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("../fxml/CloneAndCreate.fxml"));
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(cloneandcreate.getScene().getWindow());
+            stage.showAndWait();
+        }else if(event.getSource() == clone){
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("../fxml/Clone.fxml"));
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(clone.getScene().getWindow());
+            stage.showAndWait();
+        }else if(event.getSource() == create) {
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("../fxml/CREATE.fxml"));
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(create.getScene().getWindow());
+            stage.showAndWait();
+        }else {
+            stage = (Stage) clone.getScene().getWindow();
+            stage.close();
         }
+
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -153,6 +192,8 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
+
+
 }
 
 

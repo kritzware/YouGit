@@ -9,56 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
     <top>
-        <VBox prefHeight="71.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-            <children>
-                <MenuBar>
-                    <menus>
-                        <Menu mnemonicParsing="false" text="File">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#ClickedAction" text="New" />
-                                <MenuItem mnemonicParsing="false" text="Exit" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Cut" />
-                                <MenuItem mnemonicParsing="false" text="Copy" />
-                                <MenuItem mnemonicParsing="false" text="Paste" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="View">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                <Menu mnemonicParsing="false" text="Zoom">
-                                    <items>
-                                        <MenuItem mnemonicParsing="false" text="110%" />
-                                    </items>
-                                </Menu>
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Help">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-                <HBox prefHeight="65.0" prefWidth="600.0">
-                    <children>
-                        <TextField promptText="Search">
-                            <HBox.margin>
-                                <Insets left="850.0" />
-                            </HBox.margin>
-                        </TextField>
-                    </children>
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </HBox>
-            </children>
-        </VBox>
+        <VBox prefHeight="0.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
     </top>
    <center>
       <HBox prefHeight="509.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
@@ -66,12 +19,32 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <SplitPane prefHeight="529.0" prefWidth="549.0">
-               <HBox.margin>
-                  <Insets left="100.0" />
-               </HBox.margin>
+            <SplitPane dividerPositions="0.4979919678714859" prefHeight="329.0" prefWidth="520.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Text layoutX="88.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CLONE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="clone" layoutX="96.0" layoutY="306.0" mnemonicParsing="false" onAction="#ClickedAction" text="Clone" />
+                        <TextArea layoutX="34.0" layoutY="99.0" prefHeight="200.0" prefWidth="200.0" text="fijlajisdfjajfjafjalfkjalkfjallfkjkakskfjafjakfa&#10;asfjpaljfsa&#10;asfoj[aofsjkasofja;osja&#10;asipfjasf;ajsfopafjas&#10;aslfajsf;skajfal;f;aljgl;ajgl;a&#10;safjlsajga;gja;sga;gasg&#10;asgj;asg;sgajgaksgjgka;gas&#10;aksfjak;gja;gja;;gjs;agj;adg&#10;;akgkgja;ddgagj;gdgjjad;gjad;gj&#10;adlkgjkgjdag;;gdgadladgkl;l" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Text layoutX="69.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE NEW" wrappingWidth="129.83740234375">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="create" layoutX="89.0" layoutY="305.0" mnemonicParsing="false" onAction="#ClickedAction" text="CREATE" />
+                        <TextArea layoutX="34.0" layoutY="99.0" prefHeight="200.0" prefWidth="200.0" text="fijlajisdfjajfjafjalfkjalkfjallfkjkakskfjafjakfa&#10;asfjpaljfsa&#10;asfoj[aofsjkasofja;osja&#10;asipfjasf;ajsfopafjas&#10;aslfajsf;skajfal;f;aljgl;ajgl;a&#10;safjlsajga;gja;sga;gasg&#10;asgj;asg;sgajgaksgjgka;gas&#10;aksfjak;gja;gja;;gjs;agj;adg&#10;;akgkgja;ddgagj;gdgjjad;gjad;gj&#10;adlkgjkgjdag;;gdgadladgkl;l" />
+                     </children>
+                  </AnchorPane>
+              </items>
             </SplitPane>
-            <SplitPane prefHeight="529.0" prefWidth="594.0" />
          </children>
       </HBox>
    </center>
