@@ -67,19 +67,8 @@ public class RepositoryTest {
         }
     }
 
-    @Test
-    public void getRepositoryBranches() throws GitAPIException {
-        Repository repo = new Repository("kritzbot", "https://github.com/kritzware/kritzbot.git");
-        List<Ref> branches = repo.getBranches();
-        for(Iterator<Ref> iter = branches.iterator(); iter.hasNext();) {
-            Ref branch = iter.next();
-            System.out.println(repo.getBranchName(branch));
-        }
-        assertEquals(repo.getBranchName(branches.get(0)), "refs/heads/master");
-    }
-
-   @BeforeClass
-    public static void preTest() {
+   @Before
+    public void preTest() {
         System.out.println("Deleting test files");
         File repoTest = new File(FileSystemView
                 .getFileSystemView()
@@ -100,8 +89,8 @@ public class RepositoryTest {
         }
     }
 
-    @AfterClass
-    public static void cleanup() {
+    @After
+    public void cleanup() {
         System.out.println("Deleting test files");
         File repoTest = new File(FileSystemView
                 .getFileSystemView()

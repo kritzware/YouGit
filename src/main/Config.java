@@ -9,9 +9,17 @@ import java.util.Scanner;
 
 public class Config {
 
-    private final static String appData = System.getenv("LOCALAPPDATA");
+    private static String appData;
+    private static String UserOS = (System.getProperty("os.name")).toUpperCase();
 
     public static HashMap<String, Object> loadConfig() {
+        if(UserOS.contains("WIN")) {
+            appData = System.getenv("AppData");
+        } else {
+            appData = System.getProperty("user.home");
+            appData += "/Library/Application Support";
+        }
+
         Scanner conf = null;
         try {
             conf = new Scanner(new File(appData + "/YouGit/conf.yougit"));

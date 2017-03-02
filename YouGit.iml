@@ -11,7 +11,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+<<<<<<< HEAD
           <root url="jar://$MODULE_DIR$/../org.eclipse.jgit-4.6.0.201612231935-r.jar!/" />
+=======
+          <root url="jar://$MODULE_DIR$/.idea/libraries/hamcrest-core-1.3.jar!/" />
+>>>>>>> 3b9cd66d8e0ca289e027726d3528aee7573fb554
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -20,7 +24,47 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+<<<<<<< HEAD
           <root url="jar://$MODULE_DIR$/../junit-4.12.jar!/" />
+=======
+          <root url="jar://$MODULE_DIR$/.idea/libraries/jsch-0.1.54.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/.idea/libraries/junit-4.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/.idea/libraries/org.eclipse.jgit-4.6.0.201612231935-r.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/.idea/libraries/slf4j-api-1.7.22.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/.idea/libraries/slf4j-simple-1.7.22.jar!/" />
+>>>>>>> 3b9cd66d8e0ca289e027726d3528aee7573fb554
         </CLASSES>
         <JAVADOC />
         <SOURCES />
