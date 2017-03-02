@@ -56,11 +56,7 @@
                   </ImageView>
             <Button fx:id="bt1" mnemonicParsing="false" onAction="#ClickedAction" text="File Explorer">
                      <HBox.margin>
-<<<<<<< HEAD
                         <Insets left="120.0" right="40.0" top="5.0" />
-=======
-                        <Insets left="110.0" right="40.0" top="5.0" />
->>>>>>> 3b9cd66d8e0ca289e027726d3528aee7573fb554
                      </HBox.margin>
             </Button>
             <Button fx:id="cloneandcreate" mnemonicParsing="false" onAction="#ClickedAction" text="Clone">
@@ -69,15 +65,7 @@
                      </HBox.margin></Button>
                   <Button fx:id="bt4" mnemonicParsing="false" onAction="#ClickedAction" prefHeight="27.0" prefWidth="75.0" text="Browse">
                      <HBox.margin>
-<<<<<<< HEAD
                         <Insets right="105.0" top="5.0" />
-=======
-                        <Insets right="40.0" top="5.0" />
-                     </HBox.margin></Button>
-                  <Button fx:id="bt4" mnemonicParsing="false" onAction="#ClickedAction" prefHeight="27.0" prefWidth="75.0" text="Browse">
-                     <HBox.margin>
-                        <Insets top="5.0" />
->>>>>>> 3b9cd66d8e0ca289e027726d3528aee7573fb554
                      </HBox.margin></Button>
                   <TextField promptText="Search">
                      <HBox.margin>
@@ -112,10 +100,7 @@
                         <TextField layoutX="-1.0" layoutY="254.0" prefHeight="36.0" prefWidth="599.0" promptText="Enter Commands" />
                         <ScrollPane layoutX="-3.0" layoutY="2.0" prefHeight="255.0" prefWidth="599.0">
                           <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="598.0">
-                                 <children>
-                                    <Button layoutX="112.0" layoutY="61.0" mnemonicParsing="false" text="Button" />
-                                 </children></AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="598.0" />
                           </content>
                         </ScrollPane>
                      </children>
