@@ -11,6 +11,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -130,11 +131,17 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>
+                <tooltip>
+                    <Tooltip text="View repository changes" />
+                </tooltip>
                 </Tab>
                 <Tab closable="false" onSelectionChanged="#tabViewBranches" text="Branches">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>
+                <tooltip>
+                    <Tooltip text="View repository branches" />
+                </tooltip>
                 </Tab>
                 <Tab closable="false" onSelectionChanged="#tabViewHistory" text="History">
                     <content>
@@ -143,6 +150,9 @@
                         <ListView fx:id="commitsList" prefHeight="210.0" prefWidth="794.0" />
                      </children></AnchorPane>
                     </content>
+               <tooltip>
+                  <Tooltip text="View repository commit history" />
+               </tooltip>
                 </Tab>
             </tabs>
         </TabPane>

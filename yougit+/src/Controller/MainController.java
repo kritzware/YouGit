@@ -32,13 +32,12 @@ public class MainController {
             for (Map.Entry<String, String> entry : commitsMap.entrySet()) {
                 String key = entry.getKey();
                 String value = entry.getValue();
-                commits.add(value);
+                commits.add("#" + key.substring(0, Math.min(key.length(), 6)) + " : " + value);
             }
 
             ListProperty<String> listProperty = new SimpleListProperty<>();
             commitsList.itemsProperty().bind(listProperty);
             listProperty.set(FXCollections.observableArrayList(commits));
-
         }
     }
 

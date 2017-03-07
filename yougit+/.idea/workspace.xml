@@ -81,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="31" column="75" lean-forward="true" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
+            <state relative-caret-position="221">
+              <caret line="27" column="77" lean-forward="true" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,14 +93,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainView.fxml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainView.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FXML/MainView.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+          <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="2414">
-              <caret line="142" column="93" lean-forward="false" selection-start-line="142" selection-start-column="93" selection-end-line="142" selection-end-column="93" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="139" column="106" lean-forward="true" selection-start-line="139" selection-start-column="106" selection-end-line="139" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -154,9 +154,9 @@
         <option value="$PROJECT_DIR$/src/Main/Config.java" />
         <option value="$PROJECT_DIR$/src/Controller/NewRepository.java" />
         <option value="$PROJECT_DIR$/src/Main/Main.java" />
-        <option value="$PROJECT_DIR$/src/FXML/MainView.fxml" />
-        <option value="$PROJECT_DIR$/src/Controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/Repository/Repository.java" />
+        <option value="$PROJECT_DIR$/src/Controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/FXML/MainView.fxml" />
       </list>
     </option>
   </component>
@@ -916,17 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/MainView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="142" column="93" lean-forward="false" selection-start-line="142" selection-start-column="93" selection-end-line="142" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/Repository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1887">
@@ -939,11 +928,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="31" column="75" lean-forward="true" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
+        <state relative-caret-position="221">
+          <caret line="27" column="77" lean-forward="true" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/MainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="139" column="106" lean-forward="true" selection-start-line="139" selection-start-column="106" selection-end-line="139" selection-end-column="106" />
+          <folding />
         </state>
       </provider>
     </entry>
