@@ -3,6 +3,7 @@ const controllersDir = 'controllers'
 
 angular.module('app', [
   'ngRoute',
+  'ngSanitize',
   'app.services',
   'app.main_controller',
   'app.history_controller',

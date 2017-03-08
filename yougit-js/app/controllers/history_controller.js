@@ -5,18 +5,20 @@ angular.module('app.history_controller', []).controller('historyCtrl', function(
   }
 
   $scope.commits = []
-  $scope.commits_to_show = 50
   $scope.loading = false
+
+  const commits_to_show = 200
 
   init()
 
   function init() {
     $scope.loading = true
-    repository.git.getCommits($scope.commits_to_show)
+    repository.git.getCommits(commits_to_show)
     .then((commits) => {
       $scope.commits = commits
       commits.forEach(commit => {
         commit.date = moment(commit.date()).fromNow()
+        commit.msg = commit.message()
       })
       $scope.loading = false
       $scope.$apply()

@@ -13,7 +13,7 @@
     <div class="right menu">
       <div class="item">
         <div class="ui icon input">
-          <input type="text" placeholder="Search...">
+          <input type="text" placeholder="Search..." ng-model="commit.msg">
           <i class="search link icon"></i>
         </div>
       </div>
@@ -23,12 +23,12 @@
   <br>
   <div class="ui grid" ng-if="!loading">
     <div class="sixteen wide column">
-      Showing {{commits_to_show}} latest commits in branch <a class="ui black label small">master</a>
-      <div class="ui relaxed divided list" ng-repeat="commit in commits">
+      Showing {{commitsFiltered.length}} latest commits in branch <a class="ui black label small">master</a>
+      <div class="ui relaxed divided list" ng-repeat="commit in commits | filter: commit as commitsFiltered">
         <div class="item">
           <i class="large github middle aligned icon"></i>
           <div class="content">
-            <a class="header" ng-click="go('commit/'+commit.id())">{{commit.message()}} 
+            <a class="header" ng-click="go('commit/'+commit.id())">{{commit.msg}} 
               <div class="ui horizontal tiny basic label">#{{commit.id().toString().substring(0, 7)}}</div>
             </a>
             <div class="description">{{commit.date}} by {{commit.author()}}

@@ -23,8 +23,13 @@
   <br>
   <div class="ui grid" ng-if="!loading">
     <!--<div>file: {{commit.name}} sha: {{commit.sha}} rawSize: {commit.rawSize}</div>-->
-    <div class="ui segment" style="width:100%">
+    <!--<div class="ui segment" style="width:100%">
       <pre>{{commit.firstTenLines}}</pre>
+    </div>-->
+    <div class="ui segment" style="width:100%">
+      <div ng-bind-html="diffs" style="white-space:pre;font-size:11px" id="code-block">
+        <!--{{diffs}}-->
+      </div>
     </div>
   </div>
 </div>

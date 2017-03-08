@@ -2,6 +2,7 @@ const remote = require('electron').remote;
 const app = remote.app;
 const Git = require('nodegit')
 const userDocuments = require('os').homedir()
+const Promise = require('bluebird')
 
 function Repository(name, opt) {
   this.name = name
@@ -72,30 +73,35 @@ Repository.prototype = {
   },
 
   getDiff(id) {
+    let commitDiffLines = []
     return this.git.getCommit(id)
     .then(commit => {
         return commit.getDiff();
     })
-    .done((diffList) => {
-      diffList.forEach(diff => {
-        diff.patches().then(function(patches) {
-          patches.forEach(function(patch) {
-            patch.hunks().then(function(hunks) {
-            hunks.forEach(function(hunk) {
-              hunk.lines().then(function(lines) {
-                console.log("diff", patch.oldFile().path(),
-                  patch.newFile().path());
-                console.log(hunk.header().trim());
-                lines.forEach(function(line) {
-                  console.log(String.fromCharCode(line.origin()) +
-                    line.content().trim());
-                });
-              });
-            });
+    .then((diffList) => {
+      return Promise.resolve(diffList).map(diff => {
+        return diff.patches()
+        .then(patches => {
+          return Promise.resolve(patches).map(patch => {
+            return patch.hunks()
+            .then(hunks => {
+              return Promise.resolve(hunks).map(hunk => {
+                return hunk.lines()
+                .then(lines => {
+                  commitDiffLines.push("diff", patch.oldFile().path(), patch.newFile().path())
+                  commitDiffLines.push(hunk.header());
+                  lines.forEach(line => {
+                    commitDiffLines.push(String.fromCharCode(line.origin()) + line.content());
+                  })
+                })
+              })
+            })
           })
         })
-        })
       })
+    })
+    .then(() => {
+      return Promise.resolve(commitDiffLines)
     })
   },
 
