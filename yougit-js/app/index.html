@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="UTF-8">
+    <title>YouGit</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
+    <script>window.$ = window.jQuery = require('jquery')</script>
+  </head>
+  <body>
+    <ng-view></ng-view>
+    
+    <!-- External -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+
+    <!-- Internal -->
+    <script src="app.js"></script>
+    <script src="services.js"></script>
+    <script src="./controllers/main_controller.js"></script>
+    <script src="./controllers/history_controller.js"></script>
+    <script src="./controllers/commit_controller.js"></script>
+  </body>
+  <script>
+    /* Require node processes here */
+  </script>
+</html>
