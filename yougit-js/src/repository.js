@@ -3,11 +3,13 @@ const app = remote.app;
 const Git = require('nodegit')
 const userDocuments = require('os').homedir()
 const Promise = require('bluebird')
+const fs = require('fs')
 
 function Repository(name, opt) {
   this.name = name
   this.alreadyExists = opt.alreadyExists
   this.url = opt.url
+  this.dest = opt.dest
   this.git = null
 }
 
@@ -16,13 +18,14 @@ Repository.prototype = {
   init() {
     return new Promise((resolve, reject) => {
       if(this.alreadyExists) {
-        this.openExisting(this.name)
+        this.openExisting(this.name, this.dest)
         .then(repo => {
           this.git = repo
           resolve()
         })
+        .catch(err => reject(err))
       } else {
-        this.clone(this.name, this.url)
+        this.clone(this.name, this.url, this.dest)
         .then(repo => {
           this.git = repo
           resolve()
@@ -32,15 +35,24 @@ Repository.prototype = {
     })
   },
 
-  clone(name, url) {
-    return Git.Clone(url, userDocuments + "/YouGitRepos/" + name + "/")
+  clone(name, url, customDir) {
+    let location = userDocuments + "/YouGitRepos/" + name + "/"
+    if(customDir) {
+      location = customDir + "/" + name
+      fs.mkdirSync(location)
+    }
+    return Git.Clone(url, location)
     .then(repo => {
       return repo
     })
   },
 
-  openExisting(name) {
-    return Git.Repository.open(userDocuments + "/YouGitRepos/" + name)
+  openExisting(name, customDir) {
+    let location = userDocuments + "/YouGitRepos/" + name + "/"
+    if(customDir != 'default') {
+      location = customDir + "/" + name
+    }
+    return Git.Repository.open(location)
     .then(repo => {
       return repo
     })

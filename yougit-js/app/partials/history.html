@@ -1,39 +1,13 @@
-<div class="ui container">
-  <br>
-  <div class="ui secondary menu">
-    <a class="item" ng-click='go("")'>
-      Home
-    </a>
-    <a class="item">
-      Branches
-    </a>
-    <a class="item active" ng-click='go("history")'>
-      History
-    </a>
-    <div class="right menu">
-      <div class="item">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search..." ng-model="commit.msg">
-          <i class="search link icon"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="ui divider"></div>
-  <br>
-  <div class="ui grid" ng-if="!loading">
-    <div class="sixteen wide column">
-      Showing {{commitsFiltered.length}} latest commits in branch <a class="ui black label small">master</a>
-      <div class="ui relaxed divided list" ng-repeat="commit in commits | filter: commit as commitsFiltered">
-        <div class="item">
-          <i class="large github middle aligned icon"></i>
-          <div class="content">
-            <a class="header" ng-click="go('commit/'+commit.id())">{{commit.msg}} 
-              <div class="ui horizontal tiny basic label">#{{commit.id().toString().substring(0, 7)}}</div>
-            </a>
-            <div class="description">{{commit.date}} by {{commit.author()}}
-            </div>
-          </div>
+<div class="ui container" ng-if="!loading">
+  Showing {{commitsFiltered.length}} latest commits in branch <a class="ui black label small">master</a>
+  <div class="ui relaxed divided list" ng-repeat="commit in commits | filter: commit as commitsFiltered">
+    <div class="item">
+      <i class="large github middle aligned icon"></i>
+      <div class="content">
+        <a class="header" ui-sref="repository">{{commit.msg}}
+          <div class="ui horizontal tiny basic label">#{{commit.id().toString().substring(0, 7)}}</div>
+        </a>
+        <div class="description">{{commit.date}} by {{commit.author()}}
         </div>
       </div>
     </div>

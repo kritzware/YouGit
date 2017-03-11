@@ -11,11 +11,13 @@
     <script>window.$ = window.jQuery = require('jquery')</script>
   </head>
   <body>
-    <ng-view></ng-view>
+    <!--<ng-view></ng-view>-->
+    <div ui-view></div>
     
     <!-- External -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>-->
+    <script src="https://unpkg.com/angular-ui-router@0.4.2/release/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-sanitize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
@@ -26,6 +28,8 @@
     <script src="app.js"></script>
     <script src="services.js"></script>
     <script src="./controllers/main_controller.js"></script>
+    <script src="./controllers/changes_controller.js"></script>
+    <script src="./controllers/new_controller.js"></script>
     <script src="./controllers/history_controller.js"></script>
     <script src="./controllers/commit_controller.js"></script>
   </body>

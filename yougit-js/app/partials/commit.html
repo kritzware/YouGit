@@ -1,35 +1,11 @@
-<div class="ui container">
-  <br>
-  <div class="ui secondary menu">
-    <a class="item" ng-click='go("")'>
-      Home
-    </a>
-    <a class="item">
-      Branches
-    </a>
-    <a class="item active" ng-click='go("history")'>
-      History
-    </a>
-    <div class="right menu">
-      <div class="item">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search...">
-          <i class="search link icon"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="ui divider"></div>
-  <br>
-  <div class="ui grid" ng-if="!loading">
-    <!--<div>file: {{commit.name}} sha: {{commit.sha}} rawSize: {commit.rawSize}</div>-->
-    <!--<div class="ui segment" style="width:100%">
-      <pre>{{commit.firstTenLines}}</pre>
-    </div>-->
-    <div class="ui segment" style="width:100%">
-      <div ng-bind-html="diffs" style="white-space:pre;font-size:11px" id="code-block">
-        <!--{{diffs}}-->
-      </div>
+<div class="ui container" ng-if="!loading">
+  <!--<div>file: {{commit.name}} sha: {{commit.sha}} rawSize: {commit.rawSize}</div>-->
+  <!--<div class="ui segment" style="width:100%">
+    <pre>{{commit.firstTenLines}}</pre>
+  </div>-->
+  <div class="ui segment" style="width:100%">
+    <div ng-bind-html="diffs" style="white-space:pre;font-size:11px" id="code-block">
+      <!--{{diffs}}-->
     </div>
   </div>
 </div>

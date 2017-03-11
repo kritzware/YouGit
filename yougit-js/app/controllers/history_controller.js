@@ -1,27 +1,26 @@
-angular.module('app.history_controller', []).controller('historyCtrl', function($scope, utils, repository) {
+angular.module('app.history_controller', []).controller('historyCtrl', function($scope, utils, repository, $rootScope) {
 
-  $scope.go = function(loc) {
-    utils.go(loc)
-  }
-
+  $rootScope.navActive = 'history'
   $scope.commits = []
   $scope.loading = false
 
   const commits_to_show = 200
 
   init()
+  .then(() => {
+    $scope.loading = false
+    $scope.$apply()
+  })
 
   function init() {
     $scope.loading = true
-    repository.git.getCommits(commits_to_show)
+    return repository.git.getCommits(commits_to_show)
     .then((commits) => {
       $scope.commits = commits
       commits.forEach(commit => {
         commit.date = moment(commit.date()).fromNow()
         commit.msg = commit.message()
       })
-      $scope.loading = false
-      $scope.$apply()
     })
   }
 

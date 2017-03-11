@@ -1,10 +1,11 @@
 const Repository = require('../src/repository').Repository
 
 angular.module('app.services', [])
-.factory('utils', function ($location) {
+.factory('utils', function ($location, $state) {
     return { 
       go: function(url) {
-        $location.path('/' + url)
+        // $location.path('/' + url) 
+        $state.go(url)
       }
     }
 })
@@ -13,11 +14,12 @@ angular.module('app.services', [])
 
     git: null,
 
-    new(repo) {
-      if(!repo) {
-        let Repo = new Repository('kritzbot', {
-          url: 'https://github.com/kritzware/kritzbot.git',
-          alreadyExists: false
+    new(args) {
+      if(args.is_new) {
+        const Repo = new Repository(args.name, {
+          url: args.url,
+          alreadyExists: args.alreadyExists,
+          dest: args.dest
         })
         return Repo.init()
         .then(() => {
@@ -25,15 +27,17 @@ angular.module('app.services', [])
           return Promise.resolve()
         })
       }
-      let Repo = new Repository(repo, {
-        url: null,
-        alreadyExists: true
+      const ExistingRepo = new Repository(args.name, {
+        url: args.url,
+        alreadyExists: args.alreadyExists,
+        dest: args.dest
       })
-      return Repo.init()
+      return ExistingRepo.init()
       .then(() => {
-        this.setGit(Repo)
+        this.setGit(ExistingRepo)
         return Promise.resolve()
       })
+      .catch(err => console.error(err))
     },
 
     setGit(g) { this.git = g }

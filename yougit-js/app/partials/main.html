@@ -1,54 +1,35 @@
-<div class="ui container" ng-if="loading">
-  <div class="ui one column stackable center aligned page grid" style="margin-top:25%">
-   <div class="column twelve wide">
-       <img src="img/ring.svg">
+<div class="ui container grid">
+  <div class="column">
+    <div class="ui left vertical inverted labeled icon sidebar menu visible">
+      <a class="item" ng-class="{'active': navActive === 'changes'}" ui-sref="repository.changes">
+        <i class="code icon"></i>
+        Changes
+      </a>
+      <a class="item" ng-class="{'active': navActive === 'branches'}" ui-sref="repository.branches">
+        <i class="share alternate layout icon"></i>
+        Branches
+      </a>
+      <a class="item" ng-class="{'active': navActive === 'history'}" ui-sref="repository.history">
+        <i class="history icon"></i>
+        History
+      </a>
+      <a class="item" ui-sref="repository.chat">
+        <i class="chat icon"></i>
+        Chat
+      </a>
+      <a class="item" ui-sref="repository.settings">
+        <i class="settings icon"></i>
+        Settings
+      </a>
+      <a class="item" ui-sref="repository">
+        <i class="bold icon"></i>
+        Dev
+      </a>
     </div>
   </div>
-</div>
-<div class="ui container" ng-if="!loading">
-  <br>
-  <div class="ui secondary menu">
-    <a class="item active" ng-click='go("")'>
-      Home
-    </a>
-    <a class="item">
-      Branches
-    </a>
-    <a class="item" ng-click='go("history")'>
-      History
-    </a>
-    <div class="right menu">
-      <div class="item">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search...">
-          <i class="search link icon"></i>
-        </div>
-      </div>
-    </div>
+
+  <div class="sixteen wide column">
+    <div ui-view></div>
   </div>
-  <div class="ui divider"></div>
-  <br>
-  <div class="ui grid">
-    <table class="ui celled striped table">
-      <thead>
-        <tr><th colspan="3">
-          {{changes.length}} changes found in {{repoName}}
-        </th>
-      </tr></thead>
-      <tbody>
-        <tr ng-repeat="change in changes" class="{{change.colour}}">
-          <td>
-            <i class="file outline icon"></i> {{change.file}}
-          </td>
-          <td>
-            <i class="add square icon" ng-show="change.status === 'NEW'"></i>
-            <i class="write square icon" ng-show="change.status === 'MODIFIED'"></i>
-            <i class="minus square icon" ng-show="change.status === 'DELETED'"></i>
-            {{change.status}}
-          </td>
-          <td class="right aligned">10 hours ago</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
 </div>
