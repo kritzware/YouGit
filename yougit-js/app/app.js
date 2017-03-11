@@ -15,7 +15,7 @@ angular.module('app', [
 
   $stateProvider
     .state('repository', {
-      url: '/',
+      url: '/repository',
       templateUrl: template_base + '/main.html',
       controller: 'mainCtrl'
     })
