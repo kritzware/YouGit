@@ -26,7 +26,7 @@ angular.module('app.main_controller', []).controller('mainCtrl', function($scope
   })
 
   $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams, options) => { 
-    console.log(event)
+    // console.log(event)
   })
 
   // $scope.loading = false

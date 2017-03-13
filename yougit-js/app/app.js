@@ -29,8 +29,8 @@ angular.module('app', [
       controller: 'historyCtrl',
       templateUrl: template_base + '/history.html'
     })
-    .state('repository.history.commit', {
-      url: '/repo/history/:id',
+    .state('repository.commit', {
+      url: '/repo/commit/:id',
       controller: 'commitCtrl',
       templateUrl: template_base + '/commit.html'
     })

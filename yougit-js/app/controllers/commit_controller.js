@@ -1,15 +1,11 @@
-angular.module('app.commit_controller', []).controller('commitCtrl', function($scope, $location, utils, repository, $routeParams, $sce) {
+angular.module('app.commit_controller', []).controller('commitCtrl', function($scope, $state, repository, $sce) {
 
   $scope.loading = false
   $scope.changes = []
   $scope.diffs = []
   $scope.repoName = null
   $scope.commit = null
-  $scope.commitId = $routeParams.id
-
-  $scope.go = function(loc) {
-    utils.go(loc)
-  }
+  $scope.commitId = $state.params.id
 
   init()
 

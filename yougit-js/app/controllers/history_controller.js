@@ -1,4 +1,4 @@
-angular.module('app.history_controller', []).controller('historyCtrl', function($scope, utils, repository, $rootScope) {
+angular.module('app.history_controller', []).controller('historyCtrl', function($scope, $state, repository, $rootScope) {
 
   $rootScope.navActive = 'history'
   $scope.commits = []
@@ -11,6 +11,13 @@ angular.module('app.history_controller', []).controller('historyCtrl', function(
     $scope.loading = false
     $scope.$apply()
   })
+
+  $scope.showDiff = (commit) => {
+    const commitId = commit.id().toString()
+    $state.go('repository.commit', {
+      id: commitId
+    })
+  }
 
   function init() {
     $scope.loading = true
