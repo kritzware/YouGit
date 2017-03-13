@@ -77,7 +77,9 @@ Repository.prototype = {
             name: _entry.name(),
             sha: _entry.sha(),
             rawsize: blob.rawsize() + "b",
-            firstTenLines: blob.toString().split('\n').slice(0, 10).join('\n')
+            firstTenLines: blob.toString().split('\n').slice(0, 10).join('\n'),
+            message: commit.message(),
+            author: commit.author()
           }
         })
       })
