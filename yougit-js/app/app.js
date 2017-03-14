@@ -4,12 +4,14 @@ const controllersDir = 'controllers'
 angular.module('app', [
   'ui.router',
   'ngSanitize',
+  'highcharts-ng',
   'app.services',
   'app.main_controller',
   'app.history_controller',
   'app.commit_controller',
   'app.new_controller',
-  'app.changes_controller'
+  'app.changes_controller',
+  'app.branches_controller',
 ])
 .config(($stateProvider, $urlRouterProvider) => {
 
@@ -23,6 +25,11 @@ angular.module('app', [
       url: '/repo/changes',
       controller: 'changesCtrl',
       templateUrl: template_base + '/changes.html'
+    })
+    .state('repository.branches', {
+      url: '/repo/brances',
+      controller: 'branchesCtrl',
+      templateUrl: template_base + '/branches.html'
     })
     .state('repository.history', {
       url: '/repo/history',
