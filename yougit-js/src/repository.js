@@ -67,7 +67,6 @@ Repository.prototype = {
   getCommit(id) {
     return this.git.getCommit(id)
     .then(commit => {
-      console.log(commit)
       return commit.getEntry("src/bot.js")
       .then(entry => {
         const _entry = entry
@@ -77,11 +76,21 @@ Repository.prototype = {
             name: _entry.name(),
             sha: _entry.sha(),
             rawsize: blob.rawsize() + "b",
-            firstTenLines: blob.toString().split('\n').slice(0, 10).join('\n')
+            firstTenLines: blob.toString().split('\n').slice(0, 10).join('\n'),
+            message: commit.message(),
+            author: commit.author()
           }
         })
       })
     })
+  },
+
+  getBranchCommit(branch_name) {
+    return this.git.getBranchCommit(branch_name)
+  },
+
+  getBranchCommits(first_commit) {
+    
   },
 
   getDiff(id) {
@@ -134,6 +143,38 @@ Repository.prototype = {
       console.log(err)
     }
     return words.join(" ");
+  },
+
+  getBranches() {
+    return this.git.getReferences(Git.Reference.TYPE.LISTALL)
+  },
+
+  test(oid) {
+    return new Promise((resolve, reject) => {
+      let revwalk = this.git.createRevWalk()
+      // revwalk.sorting(Git.Revwalk.SORT.TOPOLOGICAL, Git.Revwalk.SORT.REVERSE)
+      revwalk.push(oid)
+      const branch_commits = []
+      this.walk(revwalk, oid, branch_commits)
+      .then(() => {
+        console.log(1)
+      })
+      resolve(branch_commits)
+    })
+  },
+
+  walk(rev, oid, commits) {
+    return rev.next()
+    .then(oid => {
+      if(!oid) {
+        return
+      }
+      return this.git.getCommit(oid)
+      .then(commit => {
+        commits.push(commit)
+        return walk(rev, oid, commits)
+      })
+    })
   }
 
 }
