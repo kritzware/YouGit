@@ -32,4 +32,24 @@
     <div ui-view></div>
   </div>
 
+  <style>
+  .test123 {
+    width: 150px;
+    height: 150px;
+    /*text-indent: -9999px;*/
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background: #27AE61 url("img/buddy_small.png") no-repeat center 43%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+  }
+  </style>
+
+  <div class="column">
+    <div class="ui test123" data-tooltip="Hi there!" data-position="left center" data-inverted=""></div>
+  </div>
+
 </div>
