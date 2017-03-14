@@ -12,6 +12,7 @@ angular.module('app', [
   'app.new_controller',
   'app.changes_controller',
   'app.branches_controller',
+  'app.chat_controller'
 ])
 .config(($stateProvider, $urlRouterProvider) => {
 
@@ -40,6 +41,11 @@ angular.module('app', [
       url: '/repo/commit/:id',
       controller: 'commitCtrl',
       templateUrl: template_base + '/commit.html'
+    })
+    .state('repository.chat', {
+      url: '/repo/chat',
+      controller: 'chatCtrl',
+      templateUrl: template_base + '/chat.html'
     })
     .state('new', {
       url: '/new',

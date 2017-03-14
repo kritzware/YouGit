@@ -10,7 +10,7 @@ angular.module('app.branches_controller', []).controller('branchesCtrl', functio
   const COMMIT_INTERVAL = 10
   const BRANCH_SERIES = []
   const BRANCH_COLOR_REL = {
-    'refs/heads/master': 'black'
+    'master': 'black'
   }
 
   $scope.branchesChart = {
@@ -89,13 +89,14 @@ angular.module('app.branches_controller', []).controller('branchesCtrl', functio
     })
     .then(() => {
 
-      console.log(BRANCH_SERIES)
-
       $scope.commits.forEach((commit, index) => {
         _.find(BRANCH_SERIES, {name: 'master'}).data.push({
           x: moment(commit.date()).valueOf(),
           y: 100
         })
+      })
+      _.sortBy(_.find(BRANCH_SERIES, {name: 'master'}).data, (p) => {
+        return -moment(p.x).valueOf()
       })
 
       $scope.branches.forEach((branch, index) => {
@@ -140,7 +141,6 @@ angular.module('app.branches_controller', []).controller('branchesCtrl', functio
         return b.name() === 'refs/remotes/origin/master'
       })
       $scope.branches.forEach(branch => {
-        console.log(branch.name())
         const split_name = branch.name().split('/')
         branch._name = split_name[split_name.length - 1]
       })

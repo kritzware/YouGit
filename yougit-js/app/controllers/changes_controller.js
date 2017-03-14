@@ -4,6 +4,8 @@ angular.module('app.changes_controller', []).controller('changesCtrl', function(
   $scope.loading = false
   $scope.changes = []
   $scope.repoName = repository.git.name
+  $scope.repoDir = repository.git.dest === 'default' ? 'Documents/YouGitRepos/' : repository.git.dest
+  $scope.repoUrl = repository.git.url
 
   const status_colour_rel = {
     'NEW': 'positive',
