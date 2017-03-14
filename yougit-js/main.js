@@ -18,7 +18,7 @@ function createWindow() {
   // mainWindow.setMenu(null);
 
   /* Show dev tools on start */
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   
   mainWindow.on('closed', () => mainWindow = null)
 }
