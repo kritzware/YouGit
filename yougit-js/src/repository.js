@@ -89,9 +89,9 @@ Repository.prototype = {
     return this.git.getBranchCommit(branch_name)
   },
 
-  getBranchCommits(first_commit) {
+  // getBranchCommits(first_commit) {
     
-  },
+  // },
 
   getDiff(id) {
     let commitDiffLines = []
@@ -147,6 +147,30 @@ Repository.prototype = {
 
   getBranches() {
     return this.git.getReferences(Git.Reference.TYPE.LISTALL)
+  },
+
+  getBranchCommits(oid) {
+    const revwalk = this.git.createRevWalk()
+    return new Promise((resolve, reject) => {
+      revwalk.push(oid)
+      this.walk2(revwalk, oid)
+      .then(commits => {
+        resolve(commits)
+      })
+    })
+  },
+
+  walk2(revwalk, oid) {
+    return new Promise((resolve, reject) => {
+      revwalk.next()
+      .then(oid => {
+        if(!oid) { return }
+        this.git.getCommit(oid)
+        .then(commit => {
+          resolve(commit)
+        })
+      })
+    })
   },
 
   test(oid) {

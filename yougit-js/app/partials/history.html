@@ -1,5 +1,9 @@
 <div class="ui container" ng-if="!loading">
   Showing {{commitsFiltered.length}} latest commits in branch <a class="ui black label small">master</a>
+  <div class="ui icon input">
+    <input type="text" placeholder="Search..." ng-model="commit.msg">
+    <i class="search icon"></i>
+  </div>
   <div class="ui relaxed divided list" ng-repeat="commit in commits | filter: commit as commitsFiltered">
     <div class="item">
       <i class="large github middle aligned icon"></i>
