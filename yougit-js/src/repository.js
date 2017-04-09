@@ -1,7 +1,7 @@
-const remote = require('electron').remote;
-const app = remote.app;
+// const remote = require('electron').remote;
+// const app = remote.app;
 const Git = require('nodegit')
-const userDocuments = require('os').homedir()
+const userDocuments = require('os').homedir() 
 const Promise = require('bluebird')
 const fs = require('fs')
 
