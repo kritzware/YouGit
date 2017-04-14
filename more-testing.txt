@@ -1,0 +1,8 @@
+Transferred notes from usertesting.docx to txt format 
+
+-Cloning a git repo is very clear and understandable. Also liked the way you can choose the location of the project.
+-really like the changes tab, because it displays any changes I make on the page. For instance, if I make any major changes to the project I will be able to view it on the changes tab, or even small changes to the project
+-the visual representation of the commits is very useful, as I’m a new user it will be hard for me to keep track of the commits, having it visually represented will help me keep track of the commits, also by clicking on the commit I get even more information about the commit which is very useful.
+-The home page layout is very clear, also like the folder view on the side.
+
+-The tab that confuses me a little is branch tab, maybe add more information to the branch tab.
