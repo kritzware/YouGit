@@ -1,0 +1,55 @@
+<div class="ui container grid">
+  <div class="column">
+    <div class="ui left vertical inverted labeled icon sidebar menu visible">
+      <a class="item" ng-class="{'active': navActive === 'changes'}" ui-sref="repository.changes">
+        <i class="code icon"></i>
+        Changes
+      </a>
+      <a class="item" ng-class="{'active': navActive === 'branches'}" ui-sref="repository.branches">
+        <i class="share alternate layout icon"></i>
+        Branches
+      </a>
+      <a class="item" ng-class="{'active': navActive === 'history'}" ui-sref="repository.history">
+        <i class="history icon"></i>
+        History
+      </a>
+      <a class="item" ng-class="{'active': navActive === 'chat'}" ui-sref="repository.chat">
+        <i class="chat icon"></i>
+        Chat
+      </a>
+      <a class="item" ui-sref="repository.settings">
+        <i class="settings icon"></i>
+        Settings
+      </a>
+      <a class="item" ui-sref="repository">
+        <i class="bold icon"></i>
+        Dev
+      </a>
+    </div>
+  </div>
+
+  <div class="sixteen wide column">
+    <div ui-view></div>
+  </div>
+
+  <style>
+  .test123 {
+    width: 150px;
+    height: 150px;
+    /*text-indent: -9999px;*/
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background: #27AE61 url("img/buddy_small.png") no-repeat center 43%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+  }
+  </style>
+
+  <div class="column">
+    <div class="ui test123" data-tooltip="Hi there!" data-position="left center" data-inverted=""></div>
+  </div>
+
+</div>

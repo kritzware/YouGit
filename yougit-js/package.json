@@ -9,6 +9,7 @@
     "start": "electron main.js",
     "test": "mocha test/test.js --timeout 10000" 
   },
+  "productName": "YouGit",
   "author": "",
   "license": "ISC",
   "devDependencies": {
