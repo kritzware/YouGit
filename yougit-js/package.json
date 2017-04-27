@@ -7,7 +7,9 @@
     "rebuild": ".\\node_modules\\.bin\\electron-rebuild.cmd",
     "rebuild-mac": "./node_modules/.bin/electron-rebuild",
     "start": "electron main.js",
-    "test": "mocha test/test.js --timeout 10000" 
+    "test": "mocha test/test.js --timeout 10000",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=../release-builds",
+    "package-win": "electron-packager . --overwite --platform=win32 --arch=x64 --out=../release-builds"
   },
   "productName": "YouGit",
   "author": "",

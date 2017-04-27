@@ -1,0 +1,13 @@
+<div class="ui container" ng-if="!loading">
+  <!--<div><i class="file icon"></i> {{commit.name}} | {{commit.message}} | sha: {{commit.sha}} rawSize: {commit.rawSize}</div>-->
+  
+  <div>
+    <h4 class="ui header">
+      <div class="ui horizontal label">{{commit.sha.substring(0, 7)}}</div>
+      </a> {{commit.message}} | {{commit.size}}
+    </h4>
+  </div>
+  <div class="ui segment" style="width:100%" ng-repeat="diff in diffs">
+    <div ng-bind-html="diff" style="white-space:pre;font-size:11px" id="code-block"></div>
+  </div>
+</div>
