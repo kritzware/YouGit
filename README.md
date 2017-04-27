@@ -1,6 +1,6 @@
 # DOWNLOADS
 - **Windows:** [YouGit-win32-x64](https://www.dropbox.com/s/vl6pjua33dyer1r/YouGit-win32-x64.rar?dl=0)
-- **MacOS:** Built not working currently
+- **MacOS:** Build not working currently
 
 # INSTALLATION INSTRUCTIONS 
 #### (If compiled versions don't work)
