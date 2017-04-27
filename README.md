@@ -1,6 +1,14 @@
-# YouGit
+# INSTALLATION INSTRUCTIONS 
+#### (If compiled versions don't work)
+1. [Install Node.js v6.9.0 or less (cannot be higher version as nodegit is incompatible](https://nodejs.org/dist/v6.9.0/)
+2. Clone the repository and cd to `yougit/yougit-js/`
+3. Run the command `npm install` to download the required dependencies
+4. Run the command `npm rebuild-mac` or `npm rebuild` for Windows (compiles packages, this may take some time)
+5. Finally, run the command `npm run start` to launch the application!
 
+Optional: `npm run test` to run the unit tests
 
+## Java Instructions (deprecated)
 
 ### Setup
 1. Download and Install IntelliJ Java IDE: [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
