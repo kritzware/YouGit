@@ -1,3 +1,6 @@
+# DOWNLOADS
+- [YouGit-win32-x64](https://www.dropbox.com/s/vl6pjua33dyer1r/YouGit-win32-x64.rar?dl=0)
+
 # INSTALLATION INSTRUCTIONS 
 #### (If compiled versions don't work)
 1. [Install Node.js v6.9.0 or less (cannot be higher version as nodegit is incompatible](https://nodejs.org/dist/v6.9.0/)
