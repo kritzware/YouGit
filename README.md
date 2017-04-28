@@ -1,6 +1,9 @@
+# YouGit
+The main application can be found inside `yougit-js/`
+
 # DOWNLOADS
 - **Windows:** [YouGit-win32-x64](https://www.dropbox.com/s/vl6pjua33dyer1r/YouGit-win32-x64.rar?dl=0)
-- **MacOS:** Build not working currently
+- **MacOS:** Build currently unavailable
 
 # INSTALLATION INSTRUCTIONS 
 #### (If compiled versions don't work)
